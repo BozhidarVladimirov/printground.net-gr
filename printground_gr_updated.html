@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printground – Branded Hotel Products | Ξενοδοχεία & SPA</title>
+  <meta name="description" content="Εξατομικευμένα προϊόντα για ξενοδοχεία, SPA και wellness κέντρα. Παντόφλες, ομπρέλες θαλάσσης, πετσέτες με το λογότυπό σας.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --deep-sea: #0a2342;
+      --ocean: #1a4b7a;
+      --azure: #2a7fca;
+      --aqua: #4ecdc4;
+      --foam: #e8f4f8;
+      --sand: #f5ede0;
+      --gold: #c9a84c;
+      --white: #ffffff;
+      --text-dark: #1a2535;
+      --text-mid: #4a5568;
+      --text-light: #8899aa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,35,66,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.4s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--aqua), var(--azure));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: white;
+      font-size: 18px;
+      letter-spacing: -1px;
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .logo-text span { color: var(--aqua); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--deep-sea);
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover { background: #e0bc5a; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(42,127,202,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(78,205,196,0.15) 0%, transparent 50%),
+        linear-gradient(160deg, var(--deep-sea) 0%, #0d2d4e 50%, #0f3860 100%);
+    }
+
+    /* Wave decoration */
+    .hero-waves {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      overflow: hidden;
+    }
+
+    .hero-waves svg { width: 100%; height: 100%; }
+
+    /* Floating circles */
+    .hero-circles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(78,205,196,0.15);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .circle-1 { width: 500px; height: 500px; top: -100px; right: -100px; animation-delay: 0s; }
+    .circle-2 { width: 300px; height: 300px; bottom: 100px; right: 200px; animation-delay: 2s; border-color: rgba(201,168,76,0.1); }
+    .circle-3 { width: 200px; height: 200px; top: 200px; right: 400px; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.02); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 60px 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(78,205,196,0.15);
+      border: 1px solid rgba(78,205,196,0.3);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      color: var(--aqua);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--aqua);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: white;
+      margin-bottom: 28px;
+    }
+
+    .hero-title strong {
+      font-weight: 600;
+      font-style: italic;
+      color: var(--aqua);
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--aqua), var(--azure));
+      color: white;
+      padding: 16px 36px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(78,205,196,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(78,205,196,0.4);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .stat {
+      background: rgba(10,35,66,0.6);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--aqua);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Hero visual side */
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s;
+    }
+
+    .hero-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(78,205,196,0.3);
+      transform: translateY(-4px);
+    }
+
+    .hero-card:first-child {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card-icon {
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: white;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .card-price {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── TARGETS ── */
+    .targets {
+      padding: 80px 60px;
+      background: var(--foam);
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--aqua);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300;
+      color: var(--deep-sea);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    .targets-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .target-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(10,35,66,0.06);
+      transition: all 0.4s;
+      border: 1px solid transparent;
+    }
+
+    .target-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(10,35,66,0.12);
+      border-color: rgba(78,205,196,0.3);
+    }
+
+    .target-icon {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .target-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--deep-sea);
+      margin-bottom: 12px;
+    }
+
+    .target-text {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ── PRODUCTS ── */
+    .products {
+      padding: 100px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .products-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .products-intro .section-label { text-align: left; }
+    .products-intro .section-title { text-align: left; margin-bottom: 0; }
+
+    .products-intro-text {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* Product tabs */
+    .product-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid #e2e8f0;
+      color: var(--text-mid);
+      background: white;
+    }
+
+    .tab.active, .tab:hover {
+      background: var(--deep-sea);
+      color: white;
+      border-color: var(--deep-sea);
+    }
+
+    /* Product grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(10,35,66,0.06);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: 1px solid #f0f4f8;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(10,35,66,0.14);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      gap: 8px;
+    }
+
+    .product-body {
+      padding: 24px;
+    }
+
+    .product-category {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--aqua);
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--deep-sea);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .product-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .detail-tag {
+      background: var(--foam);
+      color: var(--ocean);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid #f0f4f8;
+    }
+
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--deep-sea);
+    }
+
+    .product-price span {
+      font-size: 13px;
+      color: var(--text-light);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    .product-cta {
+      background: var(--deep-sea);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .product-cta:hover {
+      background: var(--ocean);
+      transform: translateY(-1px);
+    }
+
+    /* Branding colors */
+    .branding-colors {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .color-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .color-dot:hover { transform: scale(1.3); }
+
+    /* ── WHY SECTION ── */
+    .why {
+      background: linear-gradient(160deg, var(--deep-sea), #0f3860);
+      padding: 100px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(78,205,196,0.08) 0%, transparent 70%);
+    }
+
+    .why-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .why .section-label, .why .section-title {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .why .section-title { color: white; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .why-item {
+      text-align: center;
+    }
+
+    .why-icon {
+      width: 64px; height: 64px;
+      background: rgba(78,205,196,0.1);
+      border: 1px solid rgba(78,205,196,0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+    }
+
+    .why-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .why-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    /* ── PROCESS ── */
+    .process {
+      padding: 100px 60px;
+      background: var(--sand);
+    }
+
+    .process-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 32px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 64px; height: 64px;
+      background: var(--deep-sea);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: white;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--deep-sea);
+      margin-bottom: 8px;
+    }
+
+    .step-text {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT / CTA ── */
+    .contact-section {
+      padding: 100px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      color: var(--deep-sea);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .contact-left h2 em {
+      font-style: italic;
+      color: var(--azure);
+    }
+
+    .contact-left p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-ico {
+      width: 40px; height: 40px;
+      background: var(--foam);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-detail {
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .contact-detail strong { display: block; font-size: 12px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+
+    /* Form */
+    .contact-form {
+      background: white;
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(10,35,66,0.1);
+    }
+
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--deep-sea);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid #e8edf4;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      background: #fafbfd;
+      transition: all 0.3s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--aqua);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(78,205,196,0.1);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--deep-sea), var(--ocean));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(10,35,66,0.3);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .form-success .success-icon { font-size: 48px; margin-bottom: 16px; }
+    .form-success h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--deep-sea); margin-bottom: 12px; }
+    .form-success p { color: var(--text-mid); font-size: 14px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep-sea);
+      padding: 60px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: white;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span { color: var(--aqua); }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--aqua); }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .hero-content { grid-template-columns: 1fr; padding: 100px 24px 80px; }
+      .hero-visual { display: none; }
+      .targets-grid { grid-template-columns: 1fr; padding: 0; }
+      .targets { padding: 60px 24px; }
+      .products { padding: 60px 24px; }
+      .products-intro { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .why { padding: 60px 24px; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .process { padding: 60px 24px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+      .contact-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .contact-form { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 40px 24px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-mark">PG</div>
+    <div class="logo-text">PRINT<span>GROUND</span></div>
+  </a>
+  <a href="#contact" class="nav-cta">Ζητήστε Προσφορά →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circles">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">Για Ξενοδοχεία & SPA</div>
+      <h1 class="hero-title">
+        Branded Προϊόντα για<br>
+        <strong>Αξέχαστη</strong><br>
+        Φιλοξενία
+      </h1>
+      <p class="hero-subtitle">
+        Παντόφλες, πετσέτες και ομπρέλες θαλάσσης με το λογότυπό σας. Κάντε κάθε επαφή με τον πελάτη μια εμπειρία brand.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Ζητήστε Προσφορά</a>
+        <a href="#products" class="btn-ghost">Δείτε Προϊόντα</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Ελάχιστη Παραγγελία</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">24h</span>
+          <span class="stat-label">Απάντηση Προσφοράς</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">EU</span>
+          <span class="stat-label">Αποστολή σε ΕΕ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="https://printground.net/wp-content/uploads/2025/03/image11111123-300x300.jpg" alt="DANES Παντόφλες" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px; flex-shrink: 0;">
+        <div>
+          <div class="card-title">Παντόφλες Ξενοδοχείου</div>
+          <div class="card-desc">Unisex, από πολυεστέρα. Το λογότυπό σας σε κάθε βήμα.</div>
+          <div class="card-price">από €1.78 / τεμ.</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://printground.net/wp-content/uploads/2025/03/imag1234e-300x300.jpg" alt="DERING Ομπρέλα" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px; flex-shrink: 0;">
+        <div class="card-title">Ομπρέλα Θαλάσσης</div>
+        <div class="card-desc">Branded παραλία</div>
+        <div class="card-price">€9.90</div>
+      </div>
+      <div class="hero-card">
+        <img src="https://printground.net/wp-content/uploads/2025/03/imag1111e-300x300.jpg" alt="CALIFORNIA Πετσέτα" style="width: 56px; height: 56px; object-fit: cover; border-radius: 10px; flex-shrink: 0;">
+        <div class="card-title">Πετσέτες Παραλίας</div>
+        <div class="card-desc">3 τύποι & μεγέθη</div>
+        <div class="card-price">από €6.29</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- TARGETS -->
+<section class="targets">
+  <div class="section-label">Ιδανικό Για</div>
+  <h2 class="section-title">Σχεδιασμένο για τις<br>ανάγκες σας</h2>
+  <div class="targets-grid fade-in">
+    <div class="target-card">
+      <div class="target-icon">🏨</div>
+      <h3 class="target-title">Ξενοδοχεία</h3>
+      <p class="target-text">Θαλάσσια ή ορεινά resort, boutique ή αλυσίδα — branded amenities που αφήνουν εντύπωση σε κάθε επισκέπτη.</p>
+    </div>
+    <div class="target-card">
+      <div class="target-icon">💆</div>
+      <h3 class="target-title">SPA Κέντρα</h3>
+      <p class="target-text">Πετσέτες και παντόφλες με το λογότυπό σας για μια ολοκληρωμένη premium εμπειρία χαλάρωσης.</p>
+    </div>
+    <div class="target-card">
+      <div class="target-icon">🌿</div>
+      <h3 class="target-title">Wellness Κέντρα</h3>
+      <p class="target-text">Ενισχύστε το brand σας με προϊόντα που αντικατοπτρίζουν τις αξίες σας: ποιότητα, φροντίδα, ευεξία.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-intro fade-in">
+    <div>
+      <div class="section-label">Τα Προϊόντα μας</div>
+      <h2 class="section-title">Κάθε λεπτομέρεια<br>με το brand σας</h2>
+    </div>
+    <p class="products-intro-text">
+      Επιλέξτε ανάμεσα σε εκατοντάδες χρώματα και τεχνικές εκτύπωσης. Ελάχιστη παραγγελία 50 τεμάχια. Αποστολή σε όλη την Ελλάδα και την ΕΕ.
+    </p>
+  </div>
+
+  <div class="product-tabs">
+    <div class="tab active" onclick="filterProducts('all', this)">Όλα τα Προϊόντα</div>
+    <div class="tab" onclick="filterProducts('slippers', this)">Παντόφλες</div>
+    <div class="tab" onclick="filterProducts('umbrella', this)">Ομπρέλες</div>
+    <div class="tab" onclick="filterProducts('towel', this)">Πετσέτες</div>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+
+    <!-- SLIPPERS -->
+    <div class="product-card fade-in" data-category="slippers">
+      <img class="product-image" src="https://printground.net/wp-content/uploads/2025/03/image11111123-300x300.jpg" alt="DANES Παντόφλες Υπνοδωματίου">
+      <div class="product-body">
+        <div class="product-category">Παντόφλες Ξενοδοχείου</div>
+        <h3 class="product-name">DANES — Παντόφλες Υπνοδωματίου</h3>
+        <p class="product-desc">Unisex παντόφλες από πολυεστέρα, ιδανικές για ξενοδοχεία, SPA και wellness κέντρα. Άνετες, ελαφριές, με επιλογή χρωμάτων.</p>
+        <div class="product-details">
+          <span class="detail-tag">Πολυεστέρας</span>
+          <span class="detail-tag">Unisex</span>
+          <span class="detail-tag">Λογότυπο</span>
+          <span class="detail-tag">Πολλαπλά χρώματα</span>
+        </div>
+        <div class="branding-colors">
+          <div class="color-dot" style="background:#fff; border: 1px solid #ddd;" title="Λευκό"></div>
+          <div class="color-dot" style="background:#1a4b7a;" title="Μπλε"></div>
+          <div class="color-dot" style="background:#2d2d2d;" title="Μαύρο"></div>
+          <div class="color-dot" style="background:#c9a84c;" title="Χρυσό"></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">€1.78 <span>/ τεμ. (50+ τεμ.)</span></div>
+          <a href="#contact" class="product-cta">Προσφορά</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UMBRELLA -->
+    <div class="product-card fade-in" data-category="umbrella">
+      <img class="product-image" src="https://printground.net/wp-content/uploads/2025/03/imag1234e-300x300.jpg" alt="DERING Ομπρέλα Παραλίας">
+      <div class="product-body">
+        <div class="product-category">Ομπρέλα Θαλάσσης</div>
+        <h3 class="product-name">DERING — Ομπρέλα Παραλίας</h3>
+        <p class="product-desc">Ανθεκτική ομπρέλα παραλίας με δυνατότητα εκτύπωσης λογοτύπου. Ιδανική για παραλιακά ξενοδοχεία και beach clubs με branded εμπειρία.</p>
+        <div class="product-details">
+          <span class="detail-tag">Full Print</span>
+          <span class="detail-tag">Ανθεκτική</span>
+          <span class="detail-tag">UV Protection</span>
+          <span class="detail-tag">Παραλία & Pool</span>
+        </div>
+        <div class="branding-colors">
+          <div class="color-dot" style="background:#2a7fca;" title="Μπλε"></div>
+          <div class="color-dot" style="background:#e74c3c;" title="Κόκκινο"></div>
+          <div class="color-dot" style="background:#27ae60;" title="Πράσινο"></div>
+          <div class="color-dot" style="background:#f39c12;" title="Πορτοκαλί"></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">€9.90 <span>/ τεμ.</span></div>
+          <a href="#contact" class="product-cta">Προσφορά</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEACH TOWEL 1 -->
+    <div class="product-card fade-in" data-category="towel">
+      <img class="product-image" src="https://printground.net/wp-content/uploads/2025/03/imag1111e-300x300.jpg" alt="CALIFORNIA Πετσέτα Παραλίας">
+      <div class="product-body">
+        <div class="product-category">Πετσέτα Παραλίας</div>
+        <h3 class="product-name">CALIFORNIA — Πετσέτα Παραλίας 250 g/m²</h3>
+        <p class="product-desc">Ελαφριά πετσέτα παραλίας, ιδανική για pool areas και beach. Εκτύπωση λογοτύπου σε έντονα χρώματα.</p>
+        <div class="product-details">
+          <span class="detail-tag">250 g/m²</span>
+          <span class="detail-tag">Πετσέτα παραλίας</span>
+          <span class="detail-tag">Full Color Print</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">€6.29 <span>/ τεμ.</span></div>
+          <a href="#contact" class="product-cta">Προσφορά</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATH TOWEL L -->
+    <div class="product-card fade-in" data-category="towel">
+      <img class="product-image" src="https://printground.net/wp-content/uploads/2025/03/image-300x300.jpg" alt="BARDEM L Πετσέτα Μπάνιου">
+      <div class="product-body">
+        <div class="product-category">Πετσέτα Μπάνιου</div>
+        <h3 class="product-name">BARDEM L — Πετσέτα Μπάνιου 500 g/m²</h3>
+        <p class="product-desc">Premium πετσέτα μπάνιου από 82% βαμβάκι και 18% ανακυκλωμένο βαμβάκι. Μαλακή, απορροφητική, ιδανική για SPA και ξενοδοχεία.</p>
+        <div class="product-details">
+          <span class="detail-tag">500 g/m²</span>
+          <span class="detail-tag">82% Βαμβάκι</span>
+          <span class="detail-tag">Eco Ανακυκλωμένο</span>
+          <span class="detail-tag">Κεντητό Λογότυπο</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">€14.45 <span>/ τεμ.</span></div>
+          <a href="#contact" class="product-cta">Προσφορά</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAND TOWEL -->
+    <div class="product-card fade-in" data-category="towel">
+      <img class="product-image" src="https://printground.net/wp-content/uploads/2025/03/image-300x300.jpg" alt="BARDEM S Πετσέτα Χεριών">
+      <div class="product-body">
+        <div class="product-category">Πετσέτα Χεριών</div>
+        <h3 class="product-name">BARDEM S — Πετσέτα Χεριών 350 g/m²</h3>
+        <p class="product-desc">Πετσέτα χεριών από βαμβάκι (82%) και ανακυκλωμένο βαμβάκι (18%). Τέλεια για μπάνια, SPA lounges και wellness χώρους.</p>
+        <div class="product-details">
+          <span class="detail-tag">350 g/m²</span>
+          <span class="detail-tag">82% Βαμβάκι</span>
+          <span class="detail-tag">Eco Friendly</span>
+          <span class="detail-tag">Κεντητό Λογότυπο</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">€1.55 <span>/ τεμ.</span></div>
+          <a href="#contact" class="product-cta">Προσφορά</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECO BEACH TOWEL -->
+    <div class="product-card fade-in" data-category="towel">
+      <img class="product-image" src="https://printground.net/wp-content/uploads/2025/03/imag1234566666e-300x300.jpg" alt="SARDENHA Eco Πετσέτα Παραλίας">
+      <div class="product-body">
+        <div class="product-category">Eco Πετσέτα Παραλίας</div>
+        <h3 class="product-name">SARDENHA — Eco Πετσέτα Παραλίας 180 g/m²</h3>
+        <p class="product-desc">Βιώσιμη πετσέτα παραλίας από 70% ανακυκλωμένο βαμβάκι και 30% ανακυκλωμένο πολυεστέρα. Ιδανική για eco-friendly ξενοδοχεία.</p>
+        <div class="product-details">
+          <span class="detail-tag">180 g/m²</span>
+          <span class="detail-tag">70% Ανακυκλωμένο</span>
+          <span class="detail-tag">Eco Brand</span>
+          <span class="detail-tag">Full Color Print</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">€7.86 <span>/ τεμ.</span></div>
+          <a href="#contact" class="product-cta">Προσφορά</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-label">Γιατί Printground</div>
+    <h2 class="section-title fade-in">Εμπιστοσύνη σε κάθε λεπτομέρεια</h2>
+    <div class="why-grid fade-in">
+      <div class="why-item">
+        <div class="why-icon">🎨</div>
+        <h3 class="why-title">Custom Εκτύπωση</h3>
+        <p class="why-text">Κεντητό ή έγχρωμο print λογότυπο σε όλα τα προϊόντα, με ακρίβεια χρωμάτων.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📦</div>
+        <h3 class="why-title">Από 50 Τεμάχια</h3>
+        <p class="why-text">Δεν χρειάζονται τεράστιες ποσότητες. Ευέλικτες παραγγελίες που ταιριάζουν στο μέγεθός σας.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🇪🇺</div>
+        <h3 class="why-title">Αποστολή σε ΕΕ</h3>
+        <p class="why-text">Αποστολή σε όλη την Ελλάδα και την Ευρωπαϊκή Ένωση. Γρήγορα και αξιόπιστα.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <h3 class="why-title">Γρήγορη Απάντηση</h3>
+        <p class="why-text">Λαμβάνετε προσφορά εντός 24 ωρών. Η ομάδα μας είναι πάντα διαθέσιμη.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="section-label">Πώς Λειτουργεί</div>
+    <h2 class="section-title fade-in">Εύκολη διαδικασία σε 4 βήματα</h2>
+    <div class="steps fade-in">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Επικοινωνία</h3>
+        <p class="step-text">Στείλτε μας τα στοιχεία σας και τις ανάγκες σας μέσω της φόρμας.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Προσφορά</h3>
+        <p class="step-text">Λαμβάνετε αναλυτική προσφορά εντός 24 ωρών.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Έγκριση Design</h3>
+        <p class="step-text">Εγκρίνετε το proof του λογοτύπου σας πριν την παραγωγή.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Παράδοση</h3>
+        <p class="step-text">Τα branded προϊόντα σας παραδίδονται απευθείας στην πόρτα σας.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-left fade-in">
+    <h2>
+      Ξεκινήστε να<br>
+      <em>ξεχωρίζετε</em><br>
+      σήμερα
+    </h2>
+    <p>
+      Επικοινωνήστε μαζί μας για να λάβετε εξατομικευμένη προσφορά για το ξενοδοχείο ή το SPA σας. Απαντάμε εντός 24 ωρών.
+    </p>
+    <div class="contact-info">
+      <div class="contact-row">
+        <div class="contact-ico">📞</div>
+        <div class="contact-detail">
+          <strong>Τηλέφωνο</strong>
+          (+359) 896 718 110
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-ico">✉️</div>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          sales@printground.net
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-ico">📍</div>
+        <div class="contact-detail">
+          <strong>Διεύθυνση</strong>
+          Business Park Flavia, Plovdiv, Bulgaria
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-ico">⏰</div>
+        <div class="contact-detail">
+          <strong>Ώρες Λειτουργίας</strong>
+          Δευτ – Παρ / 09:00 – 17:00
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-right fade-in">
+    <div class="contact-form" id="contactForm">
+      <h3 class="form-title">Ζητήστε Προσφορά</h3>
+      <form onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Επωνυμία Επιχείρησης *</label>
+            <input type="text" placeholder="π.χ. Aegean Resort" required>
+          </div>
+          <div class="form-group">
+            <label>Τύπος Επιχείρησης *</label>
+            <select required>
+              <option value="">Επιλέξτε...</option>
+              <option>Ξενοδοχείο</option>
+              <option>SPA Κέντρο</option>
+              <option>Wellness Κέντρο</option>
+              <option>Resort</option>
+              <option>Άλλο</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ονοματεπώνυμο *</label>
+            <input type="text" placeholder="Γιώργος Παπαδόπουλος" required>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" placeholder="info@hotel.gr" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Τηλέφωνο</label>
+          <input type="tel" placeholder="+30 210 000 0000">
+        </div>
+        <div class="form-group">
+          <label>Ενδιαφέρεστε για</label>
+          <select>
+            <option value="">Επιλέξτε προϊόν...</option>
+            <option>Παντόφλες Ξενοδοχείου</option>
+            <option>Ομπρέλες Παραλίας</option>
+            <option>Πετσέτες Μπάνιου</option>
+            <option>Πετσέτες Παραλίας</option>
+            <option>Συνδυασμός Προϊόντων</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Εκτιμώμενη Ποσότητα</label>
+          <select>
+            <option>50 – 100 τεμάχια</option>
+            <option>100 – 250 τεμάχια</option>
+            <option>250 – 500 τεμάχια</option>
+            <option>500 – 1.000 τεμάχια</option>
+            <option>1.000 – 2.500 τεμάχια</option>
+            <option>Άνω των 2.500 τεμαχίων</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Μήνυμα (προαιρετικό)</label>
+          <textarea placeholder="Πείτε μας περισσότερα για τις ανάγκες σας..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Αποστολή Αιτήματος →
+        </button>
+        <p class="form-note">* Απαντάμε εντός 24 ωρών. Ελάχιστη παραγγελία 50 τεμάχια.</p>
+      </form>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <div class="success-icon">✅</div>
+      <h3>Ευχαριστούμε!</h3>
+      <p>Το αίτημά σας ελήφθη. Η ομάδα μας θα επικοινωνήσει μαζί σας εντός 24 ωρών.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PRINT<span>GROUND</span></div>
+  <p class="footer-tagline">Branded προϊόντα για αξέχαστη φιλοξενία</p>
+  <div class="footer-links">
+    <a href="https://eu.printground.net" target="_blank">Κεντρική Ιστοσελίδα</a>
+    <a href="#products">Προϊόντα</a>
+    <a href="#contact">Επικοινωνία</a>
+    <a href="mailto:sales@printground.net">sales@printground.net</a>
+  </div>
+  <p class="footer-bottom">© 2026 Print Ground Ltd. Business Park Flavia, Plovdiv, Bulgaria · All Rights Reserved</p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Product filter
+  function filterProducts(cat, el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (cat === 'all' || card.dataset.category === cat) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Sticky nav color change
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(10,35,66,0.98)';
+    } else {
+      nav.style.background = 'rgba(10,35,66,0.92)';
+    }
+  });
+</script>
+
+</body>
+</html>
