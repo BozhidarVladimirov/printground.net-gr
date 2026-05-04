@@ -581,6 +581,261 @@
       transform: translateY(-1px);
     }
 
+    /* ── PRODUCT MODAL ── */
+    .product-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,35,66,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .product-modal {
+      background: white;
+      border-radius: 20px;
+      max-width: 1000px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(10,35,66,0.3);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      font-size: 24px;
+      color: var(--deep-sea);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--deep-sea);
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    .modal-gallery {
+      padding: 40px;
+      background: var(--foam);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .modal-main-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(10,35,66,0.08);
+    }
+
+    .modal-thumb-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .modal-thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      background: white;
+      border-radius: 10px;
+      padding: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(10,35,66,0.06);
+    }
+
+    .modal-thumb:hover, .modal-thumb.active {
+      border-color: var(--aqua);
+      transform: scale(1.05);
+    }
+
+    .modal-info {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-sku {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--deep-sea);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .modal-price {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--deep-sea);
+      margin-bottom: 20px;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .modal-colors {
+      margin-bottom: 24px;
+    }
+
+    .modal-colors-label {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .modal-colors-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .modal-color {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+
+    .modal-color-swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+    }
+
+    .modal-personalization {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .modal-pers-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--deep-sea);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .modal-pers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .modal-pers-item {
+      text-align: center;
+    }
+
+    .modal-pers-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: var(--foam);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(10,35,66,0.06);
+    }
+
+    .modal-pers-tech {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--deep-sea);
+      margin-bottom: 4px;
+    }
+
+    .modal-pers-detail {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .modal-cta {
+      margin-top: 24px;
+      background: var(--gold);
+      color: var(--deep-sea);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .modal-cta:hover {
+      background: #e0bc5a;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .product-modal {
+        grid-template-columns: 1fr;
+        max-height: 85vh;
+      }
+      .modal-gallery { padding: 24px; }
+      .modal-info { padding: 24px; }
+      .modal-pers-grid { grid-template-columns: 1fr; }
+    }
+
+    .product-card { cursor: pointer; }
+
     /* Branding colors */
     .branding-colors {
       display: flex;
@@ -1300,7 +1555,7 @@
     </div>
 
     <!-- COOLER BAG 10L -->
-    <div class="product-card fade-in" data-category="cooler">
+    <div class="product-card fade-in" data-category="cooler" onclick="openRotterdamModal()">
       <img class="product-image" src="https://printground.net/wp-content/uploads/2023/11/98410_set.jpg" alt="ROTTERDAM Ισοθερμική Τσάντα 10L">
       <div class="product-body">
         <div class="product-category">Ισοθερμικές Τσάντες</div>
@@ -1314,13 +1569,80 @@
         </div>
         <div class="product-footer">
           <div class="product-price">€2.89 <span>/ τεμ.</span></div>
-          <a href="#contact" class="product-cta">Προσφορά</a>
+          <a href="#contact" class="product-cta" onclick="event.stopPropagation()">Προσφορά</a>
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- ROTTERDAM PRODUCT MODAL -->
+<div class="product-modal-overlay" id="rotterdamModal" onclick="if(event.target===this) closeRotterdamModal()">
+  <div class="product-modal">
+    <button class="modal-close" onclick="closeRotterdamModal()">&times;</button>
+
+    <div class="modal-gallery">
+      <img class="modal-main-image" id="rotterdamMainImg" src="https://printground.net/wp-content/uploads/2023/11/98410_set.jpg" alt="ROTTERDAM Τσάντα ψυγείο">
+      <div class="modal-thumb-row">
+        <img class="modal-thumb active" src="https://printground.net/wp-content/uploads/2023/11/98410_set.jpg" onclick="setRotterdamImage(this.src)" alt="Main">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_1_1_1.png" onclick="setRotterdamImage(this.src)" alt="Branding 1">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2024/02/98410_1_1_2.png" onclick="setRotterdamImage(this.src)" alt="Branding 2">
+      </div>
+    </div>
+
+    <div class="modal-info">
+      <div class="modal-sku">Κωδικός: 98410-104</div>
+      <h2 class="modal-title">ROTTERDAM. Τσάντα ψυγείο 10 L (80 g/m²)</h2>
+      <div class="modal-price">€2.89 <span style="font-size:16px;font-weight:400;color:var(--text-light);">/ τεμ.</span></div>
+      <p class="modal-desc">
+        Τσάντα ψυγείο από μη υφασμένο ύφασμα (80 g/m²) με κούμπωμα και μπροστινή τσέπη.
+        Χωρητικότητα έως 10λ. Διαστάσεις: 320 x 350 x 170 mm.
+        Ιδανική για beach bars, πισίνες, εκδρομές και εκδηλώσεις. Μεγάλη επιφάνεια για εκτύπωση λογοτύπου.
+      </p>
+
+      <div class="modal-colors">
+        <div class="modal-colors-label">Διαθέσιμα Χρώματα</div>
+        <div class="modal-colors-row">
+          <div class="modal-color">
+            <div class="modal-color-swatch" style="background:#ffffff;box-shadow:0 0 0 1px rgba(0,0,0,0.15);"></div>
+            <span>Άσπρο</span>
+          </div>
+          <div class="modal-color">
+            <div class="modal-color-swatch" style="background:#1e73be;"></div>
+            <span>Μπλε</span>
+          </div>
+          <div class="modal-color">
+            <div class="modal-color-swatch" style="background:#dd3333;"></div>
+            <span>Κόκκινο</span>
+          </div>
+          <div class="modal-color">
+            <div class="modal-color-swatch" style="background:#90ee90;"></div>
+            <span>Ανοιχτό πράσινο</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-personalization">
+        <div class="modal-pers-title">ΕΠΙΛΟΓΕΣ ΕΞΑΤΟΜΙΚΕΥΣΗΣ ΠΡΟΪΟΝΤΟΣ</div>
+        <div class="modal-pers-grid">
+          <div class="modal-pers-item">
+            <img src="https://printground.net/wp-content/uploads/2023/11/98410_1_1_1.png" alt="Ψηφιακή Μεταφορά">
+            <div class="modal-pers-tech">Ψηφιακή Μεταφορά</div>
+            <div class="modal-pers-detail">Τσάντα ψυγείο – Μπροστινό μέρος<br>130 x 60 mm</div>
+          </div>
+          <div class="modal-pers-item">
+            <img src="https://printground.net/wp-content/uploads/2024/02/98410_1_1_2.png" alt="Μεταφορά τυπώματος">
+            <div class="modal-pers-tech">Μεταφορά τυπώματος</div>
+            <div class="modal-pers-detail">Τσάντα ψυγείο – Μπροστινό μέρος<br>130 x 60 mm</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contact" class="modal-cta" onclick="closeRotterdamModal()">Ζητήστε Προσφορά &rarr;</a>
+    </div>
+  </div>
+</div>
 
 <!-- WHY US -->
 <section class="why">
@@ -1555,6 +1877,33 @@
     } else {
       nav.style.background = 'rgba(10,35,66,0.92)';
     }
+  });
+
+  // Rotterdam Modal
+  function openRotterdamModal() {
+    const modal = document.getElementById('rotterdamModal');
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => modal.classList.add('active'));
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRotterdamModal() {
+    const modal = document.getElementById('rotterdamModal');
+    modal.classList.remove('active');
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  function setRotterdamImage(src) {
+    document.getElementById('rotterdamMainImg').src = src;
+    document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeRotterdamModal();
   });
 </script>
 
