@@ -661,20 +661,33 @@
     .modal-thumb-row {
       display: flex;
       gap: 12px;
-      justify-content: center;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+
+    .modal-thumb-row::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .modal-thumb-row::-webkit-scrollbar-thumb {
+      background: rgba(10,35,66,0.2);
+      border-radius: 3px;
     }
 
     .modal-thumb {
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       object-fit: contain;
       background: white;
       border-radius: 10px;
-      padding: 8px;
+      padding: 6px;
       border: 2px solid transparent;
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(10,35,66,0.06);
+      flex-shrink: 0;
     }
 
     .modal-thumb:hover, .modal-thumb.active {
@@ -1586,8 +1599,12 @@
       <img class="modal-main-image" id="rotterdamMainImg" src="https://printground.net/wp-content/uploads/2023/11/98410_set.jpg" alt="ROTTERDAM Τσάντα ψυγείο">
       <div class="modal-thumb-row">
         <img class="modal-thumb active" src="https://printground.net/wp-content/uploads/2023/11/98410_set.jpg" onclick="setRotterdamImage(this.src)" alt="Main">
-        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_1_1_1.png" onclick="setRotterdamImage(this.src)" alt="Branding 1">
-        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2024/02/98410_1_1_2.png" onclick="setRotterdamImage(this.src)" alt="Branding 2">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_104.jpg" onclick="setRotterdamImage(this.src)" alt="Color 1">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_105.jpg" onclick="setRotterdamImage(this.src)" alt="Color 2">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_106.jpg" onclick="setRotterdamImage(this.src)" alt="Color 3">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_119.jpg" onclick="setRotterdamImage(this.src)" alt="Color 4">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_119-c.jpg" onclick="setRotterdamImage(this.src)" alt="Color 5">
+        <img class="modal-thumb" src="https://printground.net/wp-content/uploads/2023/11/98410_124.jpg" onclick="setRotterdamImage(this.src)" alt="Color 6">
       </div>
     </div>
 
@@ -1620,6 +1637,10 @@
             <div class="modal-color-swatch" style="background:#90ee90;"></div>
             <span>Ανοιχτό πράσινο</span>
           </div>
+          <div class="modal-color">
+            <div class="modal-color-swatch" style="background:#add8e6;"></div>
+            <span>Ανοιχτό μπλε</span>
+          </div>
         </div>
       </div>
 
@@ -1627,14 +1648,34 @@
         <div class="modal-pers-title">ΕΠΙΛΟΓΕΣ ΕΞΑΤΟΜΙΚΕΥΣΗΣ ΠΡΟΪΟΝΤΟΣ</div>
         <div class="modal-pers-grid">
           <div class="modal-pers-item">
-            <img src="https://printground.net/wp-content/uploads/2023/11/98410_1_1_1.png" alt="Ψηφιακή Μεταφορά">
+            <img src="https://printground.net/wp-content/uploads/2023/11/98410_1_1_1.png" alt="Ψηφιακή Μεταφορά - Μπροστά">
             <div class="modal-pers-tech">Ψηφιακή Μεταφορά</div>
             <div class="modal-pers-detail">Τσάντα ψυγείο – Μπροστινό μέρος<br>130 x 60 mm</div>
           </div>
           <div class="modal-pers-item">
-            <img src="https://printground.net/wp-content/uploads/2024/02/98410_1_1_2.png" alt="Μεταφορά τυπώματος">
+            <img src="https://printground.net/wp-content/uploads/2024/02/98410_1_1_2.png" alt="Μεταφορά τυπώματος - Μπροστά">
             <div class="modal-pers-tech">Μεταφορά τυπώματος</div>
             <div class="modal-pers-detail">Τσάντα ψυγείο – Μπροστινό μέρος<br>130 x 60 mm</div>
+          </div>
+          <div class="modal-pers-item">
+            <img src="https://printground.net/wp-content/uploads/2023/11/98410_1_3_1.png" alt="Ψηφιακή Μεταφορά - Πίσω">
+            <div class="modal-pers-tech">Ψηφιακή Μεταφορά</div>
+            <div class="modal-pers-detail">Τσάντα ψυγείο – Πίσω μέρος<br>130 x 230 mm</div>
+          </div>
+          <div class="modal-pers-item">
+            <img src="https://printground.net/wp-content/uploads/2024/02/98410_1_3_2.png" alt="Μεταφορά τυπώματος - Πίσω">
+            <div class="modal-pers-tech">Μεταφορά τυπώματος</div>
+            <div class="modal-pers-detail">Τσάντα ψυγείο – Πίσω μέρος<br>130 x 230 mm</div>
+          </div>
+          <div class="modal-pers-item">
+            <img src="https://printground.net/wp-content/uploads/2023/11/98410_1_2_1.png" alt="Ψηφιακή Μεταφορά - Τσέπη">
+            <div class="modal-pers-tech">Ψηφιακή Μεταφορά</div>
+            <div class="modal-pers-detail">Τσάντα ψυγείο – Τσέπη<br>130 x 180 mm</div>
+          </div>
+          <div class="modal-pers-item">
+            <img src="https://printground.net/wp-content/uploads/2024/02/98410_1_2_2.png" alt="Μεταφορά τυπώματος - Τσέπη">
+            <div class="modal-pers-tech">Μεταφορά τυπώματος</div>
+            <div class="modal-pers-detail">Τσάντα ψυγείο – Τσέπη<br>130 x 180 mm</div>
           </div>
         </div>
       </div>
