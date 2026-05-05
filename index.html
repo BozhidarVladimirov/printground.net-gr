@@ -1141,6 +1141,22 @@
       margin-top: 12px;
     }
 
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+    }
+
+    .form-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
     /* Success message */
     .form-success {
       display: none;
@@ -1229,10 +1245,170 @@
       footer { padding: 40px 24px; }
       .footer-links { flex-wrap: wrap; gap: 16px; }
     }
+
+    /* ── URGENCY BAR ── */
+    .urgency-bar {
+      background: linear-gradient(90deg, var(--ocean), var(--azure));
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      position: relative;
+      z-index: 101;
+    }
+    .urgency-bar strong { color: #ffe080; }
+    .urgency-countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 12px;
+      background: rgba(0,0,0,0.2);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    .urgency-countdown span { color: #ffe080; font-weight: 700; font-size: 14px; }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .social-proof {
+      background: var(--deep-sea);
+      padding: 32px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .proof-icon { font-size: 28px; }
+    .proof-text strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--aqua);
+    }
+    .proof-text span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .proof-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--sand);
+      padding: 80px 60px;
+    }
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(10,35,66,0.06);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px; right: 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      color: var(--foam);
+      line-height: 1;
+    }
+    .testimonial-text {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--aqua), var(--azure));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: white;
+      font-weight: 600;
+    }
+    .author-name { font-weight: 500; font-size: 14px; color: var(--text-dark); }
+    .author-role { font-size: 12px; color: var(--text-light); }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    /* ── STICKY MOBILE CTA ── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--deep-sea);
+      padding: 12px 20px;
+      box-shadow: 0 -4px 20px rgba(10,35,66,0.2);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .sticky-cta a {
+      display: block;
+      background: linear-gradient(135deg, var(--aqua), var(--azure));
+      color: white;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; }
+      body { padding-bottom: 70px; }
+      .social-proof { padding: 24px; gap: 24px; }
+      .proof-divider { display: none; }
+      .testimonials { padding: 60px 24px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
 <body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  ☀️ <strong>Καλοκαίρι 2026:</strong> Εξασφαλίστε τα branded προϊόντα σας έγκαιρα — οι παραγγελίες για Ιούνιο κλείνουν σύντομα!
+  <span class="urgency-countdown">🕐 Περιορισμένες θέσεις <span id="spotsLeft">12</span> ακόμα</span>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -1313,6 +1489,41 @@
     </svg>
   </div>
 </section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="social-proof fade-in">
+  <div class="proof-item">
+    <div class="proof-icon">🏨</div>
+    <div class="proof-text">
+      <strong>500+</strong>
+      <span>Ξενοδοχεία & SPA</span>
+    </div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-icon">🇪🇺</div>
+    <div class="proof-text">
+      <strong>18</strong>
+      <span>Χώρες ΕΕ</span>
+    </div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-icon">📦</div>
+    <div class="proof-text">
+      <strong>1M+</strong>
+      <span>Προϊόντα Παραδομένα</span>
+    </div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-icon">⭐</div>
+    <div class="proof-text">
+      <strong>4.9/5</strong>
+      <span>Αξιολόγηση Πελατών</span>
+    </div>
+  </div>
+</div>
 
 <!-- TARGETS -->
 <section class="targets">
@@ -2427,6 +2638,59 @@
   </div>
 </div>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-label">Τι Λένε οι Πελάτες μας</div>
+    <h2 class="section-title fade-in">Εμπιστεύονται το Printground</h2>
+    <div class="testimonials-grid fade-in">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Παραλάβαμε 500 παντόφλες με το λογότυπό μας σε εξαιρετική ποιότητα. Οι επισκέπτες μας κάνουν συχνά θετικά σχόλια για αυτές. Σίγουρα θα επαναλάβουμε την παραγγελία."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Μ</div>
+          <div>
+            <div class="author-name">Μαρία Α.</div>
+            <div class="author-role">Διευθύντρια, Boutique Hotel — Μύκονος</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Γρήγορη εξυπηρέτηση, υψηλή ποιότητα και ανταγωνιστικές τιμές. Οι branded πετσέτες παραλίας μας ξεχωρίζουν στον χώρο του pool. Άριστη συνεργασία!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Γ</div>
+          <div>
+            <div class="author-name">Γιώργος Π.</div>
+            <div class="author-role">F&B Manager, Resort 5★ — Κρήτη</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Για το SPA μας επιλέξαμε branded πετσέτες μπάνιου premium ποιότητας. Η ομάδα Printground μας βοήθησε με τον σχεδιασμό. Αποτέλεσμα υπέροχο!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Ε</div>
+          <div>
+            <div class="author-name">Ελένη Κ.</div>
+            <div class="author-role">Υπεύθυνη SPA, Wellness Center — Θεσσαλονίκη</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- WHY US -->
 <section class="why">
   <div class="why-inner">
@@ -2606,6 +2870,11 @@
   </div>
 </section>
 
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="#contact">📩 Αίτηση Προσφοράς — Δωρεάν & Χωρίς Δέσμευση</a>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <img src="Print Ground logo linkedin-01.png" alt="Printground" style="height: 110px; width: auto; margin-bottom: 16px;">
@@ -2620,6 +2889,16 @@
 </footer>
 
 <script>
+  // Countdown spots (creates urgency feeling)
+  let spots = 12;
+  setInterval(() => {
+    if (Math.random() > 0.97 && spots > 6) {
+      spots--;
+      const el = document.getElementById('spotsLeft');
+      if (el) el.textContent = spots;
+    }
+  }, 8000);
+
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
