@@ -2800,15 +2800,18 @@
   <div class="contact-right fade-in">
     <div class="contact-form" id="contactForm">
       <h3 class="form-title">Ζητήστε Προσφορά</h3>
-      <form onsubmit="submitForm(event)">
+      <form action="https://formsubmit.co/contact@globalepx.com" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry from gr.printground.net">
+        <input type="hidden" name="_next" value="https://gr.printground.net/?success=1">
+        <input type="hidden" name="_template" value="table">
         <div class="form-row">
           <div class="form-group">
             <label>Επωνυμία Επιχείρησης *</label>
-            <input type="text" placeholder="π.χ. Aegean Resort" required>
+            <input type="text" name="company" placeholder="π.χ. Aegean Resort" required>
           </div>
           <div class="form-group">
             <label>Τύπος Επιχείρησης *</label>
-            <select required>
+            <select name="business_type" required>
               <option value="">Επιλέξτε...</option>
               <option>Ξενοδοχείο</option>
               <option>SPA Κέντρο</option>
@@ -2821,20 +2824,20 @@
         <div class="form-row">
           <div class="form-group">
             <label>Ονοματεπώνυμο *</label>
-            <input type="text" placeholder="Γιώργος Παπαδόπουλος" required>
+            <input type="text" name="name" placeholder="Γιώργος Παπαδόπουλος" required>
           </div>
           <div class="form-group">
             <label>Email *</label>
-            <input type="email" placeholder="info@hotel.gr" required>
+            <input type="email" name="email" placeholder="info@hotel.gr" required>
           </div>
         </div>
         <div class="form-group">
           <label>Τηλέφωνο</label>
-          <input type="tel" placeholder="+30 210 000 0000">
+          <input type="tel" name="phone" placeholder="+30 210 000 0000">
         </div>
         <div class="form-group">
           <label>Ενδιαφέρεστε για</label>
-          <select>
+          <select name="product">
             <option value="">Επιλέξτε προϊόν...</option>
             <option>Παντόφλες Ξενοδοχείου</option>
             <option>Ομπρέλες Παραλίας</option>
@@ -2845,7 +2848,7 @@
         </div>
         <div class="form-group">
           <label>Εκτιμώμενη Ποσότητα</label>
-          <select>
+          <select name="quantity">
             <option>50 – 100 τεμάχια</option>
             <option>100 – 250 τεμάχια</option>
             <option>250 – 500 τεμάχια</option>
@@ -2856,7 +2859,7 @@
         </div>
         <div class="form-group">
           <label>Μήνυμα (προαιρετικό)</label>
-          <textarea placeholder="Πείτε μας περισσότερα για τις ανάγκες σας..."></textarea>
+          <textarea name="message" placeholder="Πείτε μας περισσότερα για τις ανάγκες σας..."></textarea>
         </div>
         <button type="submit" class="form-submit">
           Αποστολή Αιτήματος →
